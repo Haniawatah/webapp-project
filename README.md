@@ -4,6 +4,7 @@ Det här projektet uppfyller:
 
 - Krav 1: Specifikation och arkitektur
 - Krav 2: Karta och GPS
+- Krav 3: Native design 
 - Krav 4 (valfritt): Autentisering och favoritstationer
 
 
@@ -111,3 +112,4 @@ VITE_API_KEY = din_api_nyckel
 ## Deployment
 
 Workflow finns i `.github/workflows/deploy.yml` och bygger + deployar automatiskt till GitHub Pages vid push till `main` eller `master`.
+# webapp-project
