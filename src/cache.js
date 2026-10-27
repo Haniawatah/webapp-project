@@ -1,4 +1,4 @@
-// Return payload only when cache entry is fresh.
+// Return payload only when tha cache entry is fresh.
 export function getCacheItem(cacheKey, cacheTimeToLiveMs) {
   try {
     const storedRawValue = localStorage.getItem(cacheKey);
@@ -39,7 +39,7 @@ export function setCacheItem(cacheKey, payloadToStore) {
       })
     );
   } catch (cacheWriteError) {
-    // quota issues should not break user flows in here
+    // quota issues should not breaks user flows in here
   }
 }
 
