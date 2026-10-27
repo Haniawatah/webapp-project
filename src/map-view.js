@@ -1,5 +1,22 @@
 import L from "leaflet";
 
+import markerIcon2xUrl from "leaflet/dist/images/marker-icon-2x.png";
+import markerIconUrl from "leaflet/dist/images/marker-icon.png";
+import markerShadowUrl from "leaflet/dist/images/marker-shadow.png";
+
+
+// Leaflet's default icon points at fixed package paths that go 404 after the
+// Vite build. Importing the PNGs lets Vite copy and rewrite their URLs.
+const stationMarkerIcon = L.icon({
+  iconUrl: markerIconUrl,
+  iconRetinaUrl: markerIcon2xUrl,
+  shadowUrl: markerShadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
 
 // Initialize map and reusable layers.
 export function setupMap(appState) {
@@ -68,10 +85,13 @@ export function renderMapMarkers(appState, appElements, escapeHtml) {
 
   appState.mergedRows.forEach(function (mergedRowItem) {
     const stationData = mergedRowItem.station;
-    const stationMarker = L.marker([
-      stationData.coords.latitude,
-      stationData.coords.longitude
-    ]);
+    const stationMarker = L.marker(
+      [
+        stationData.coords.latitude,
+        stationData.coords.longitude
+      ],
+      { icon: stationMarkerIcon }
+    );
 
     const popupHtml = `
       <div class="popup-wrap">
