@@ -105,7 +105,7 @@ npm run preview
 Skapa `.env` (valfritt, appen har fallback-api-key):
 
 ```bash
-VITE_API_KEY = din_api_nyckel
+VITE_API_KEY =api_nyckel
 ```
 
 
